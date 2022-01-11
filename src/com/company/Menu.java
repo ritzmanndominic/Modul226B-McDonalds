@@ -1,5 +1,5 @@
 package com.company;
 
-public class Buger {
+public class Menu {
 
 }
