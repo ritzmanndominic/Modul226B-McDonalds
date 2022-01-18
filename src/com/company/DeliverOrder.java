@@ -8,8 +8,6 @@ public class DeliverOrder {
 
     public void orderBurger() {
 
-        Burger burger = new Burger(Ingredients.Bread, Ingredients.Bread, Ingredients.Patty, OptionalIngredients.Cheese, OptionalIngredients.Cocktail);
-
     }
 
 
