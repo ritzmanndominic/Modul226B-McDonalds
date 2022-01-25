@@ -1,26 +1,34 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Burger {
+    private ArrayList<Ingredients> ingredientsList;
+    private ArrayList<OptionalIngredients> OptionalIngredientsList = new ArrayList<OptionalIngredients>() {
+    };
 
-    private Ingredients BottomBread = Ingredients.Bread;
-    private Ingredients TopBread = Ingredients.Bread;
-    private Ingredients Patty = Ingredients.Patty;
-    private OptionalIngredients Cheese = OptionalIngredients.Cheese;
-    private OptionalIngredients Cucumber = OptionalIngredients.Cucumber;
-    private OptionalIngredients Onion = OptionalIngredients.Onion;
-    private OptionalIngredients Pickle = OptionalIngredients.Pickle;
-    private OptionalIngredients Salad = OptionalIngredients.Salad;
-    private OptionalIngredients Tomato = OptionalIngredients.Tomato;
-    private OptionalIngredients Bacon = OptionalIngredients.Bacon;
-    private OptionalIngredients Ketchup = OptionalIngredients.Ketchup;
-    private OptionalIngredients Cocktail = OptionalIngredients.Cocktail;
-
-    public Burger(Ingredients bottomBread, Ingredients topBread, Ingredients patty, OptionalIngredients... OptionalIngredients) {
-        BottomBread = bottomBread;
-        TopBread = topBread;
-        Patty = patty;
+    public Burger(ArrayList<OptionalIngredients> optionalIngredients) {
+        ingredientsList = new ArrayList<Ingredients>(Arrays.asList(Ingredients.Bread, Ingredients.Bread, Ingredients.Patty));
+        OptionalIngredientsList = optionalIngredients;
     }
 
     public Burger() {
+    }
+
+    public ArrayList<Ingredients> getIngredientsList() {
+        return ingredientsList;
+    }
+
+    public void setIngredientsList(ArrayList<Ingredients> ingredientsList) {
+        this.ingredientsList = ingredientsList;
+    }
+
+    public ArrayList<OptionalIngredients> getOptionalIngredientsList() {
+        return OptionalIngredientsList;
+    }
+
+    public void setOptionalIngredientsList(ArrayList<OptionalIngredients> optionalIngredientsList) {
+        OptionalIngredientsList = optionalIngredientsList;
     }
 }
