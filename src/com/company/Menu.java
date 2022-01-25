@@ -10,7 +10,7 @@ public class Menu {
     }
 
     public void printMenu(){
-        BurgerList.forEach((i) ->  System.out.println("Standard ingredients: " + i.getIngredientsList() + "\nOptional ingredients" + i.getOptionalIngredientsList()));
+        BurgerList.forEach((i) -> IO.drawMultipleBox(BurgerList.size() + 1,(BurgerList.size() / 2) + 1, (BurgerList.size() / 2) + 1, "Standard ingredients: " + i.getIngredientsList() + " Optional ingredients" + i.getOptionalIngredientsList()));
     }
 
     public ArrayList<Burger> getBurgerList() {
