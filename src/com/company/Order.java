@@ -18,5 +18,4 @@ public class Order {
         }
         menu.getBurgerList().add(new Burger(optionalIngredients));
     }
-
 }
