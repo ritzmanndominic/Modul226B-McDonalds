@@ -9,32 +9,33 @@ public class Overview {
     public void overview() {
 
         do {
-            IO.drawMultipleBox(10, 3, 3, "1: Recieve new order", "2: Check all open orders", "3: Prepare order", "4: End Simulation");
-            choice = IO.readRangedInt(1, 4);
+            IO.drawMultipleBox(10, 3, 3, "1: Recieve new order", "2: Check all open orders", "3: Prepare order", "9: End Simulation");
+            choice = IO.readRangedInt(1, 9);
 
             switch (choice) {
                 case 1: {
-                    if (menu.getBurgerList().size() == 0) {
-                        Order.CreateBurger(menu);
-                    } else {
-                        System.err.println("You can't recieve orders, you still got some open!");
-                    }
+                    //Recieve new order
+                    Order.CreateBurger(menu);
                     break;
                 }
                 case 2: {
+                    //Check all open orders
                     menu.printMenu();
                     break;
                 }
 
                 case 3: {
+                    //Prepare order
                     deliverOrder.orderBurger();
                     break;
                 }
-                case 4: {
+                case 9: {
+                    //End Simulation
                     System.exit(0);
+                    break;
                 }
             }
-        } while (choice != 4);
+        } while (choice != 9);
 
 
     }

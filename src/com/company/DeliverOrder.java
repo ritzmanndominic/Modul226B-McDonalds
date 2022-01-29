@@ -21,7 +21,10 @@ public class DeliverOrder {
     }
 
     public void orderBurger() {
+        Menu menu = new Menu();
         do {
+            menu.getBurgerList().forEach((i) -> IO.drawMultipleBox(menu.getBurgerList().size() + 1, (menu.getBurgerList().size() / 2) + 1, (menu.getBurgerList().size() / 2) + 1, "Standard ingredients: " + i.getIngredientsList() + " Optional ingredients" + i.getOptionalIngredientsList()));
+
             IO.drawMultipleBox(20, (OptionalIngredients.values().length / 2) + 1, (OptionalIngredients.values().length / 4), "0: Salad", "1: Tomato", "2: Cucumber", "3: Cheese", "4: Cocktail", "5: Ketchup", "6: Bacon", "7: Pickle", "8: Onion", "9: Done");
             choice = IO.readRangedInt(0, 9);
 
@@ -33,5 +36,7 @@ public class DeliverOrder {
             }
         } while (choice != 9);
         orderedBurgers.put(orderedBurgers.size() + 1, new Burger(optionalIngredients));
+
     }
+
 }
