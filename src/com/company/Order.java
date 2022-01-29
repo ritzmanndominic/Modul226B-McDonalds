@@ -6,8 +6,6 @@ import java.util.Random;
 public class Order {
 
     public static void CreateBurger(Menu menu) {
-        DeliverOrder deliverOrder = new DeliverOrder();
-
         if (menu.getBurgerList().size() == 0) {
             int amountOptionalIngredients = new Random().nextInt(OptionalIngredients.values().length);
             ArrayList<OptionalIngredients> optionalIngredients = new ArrayList<OptionalIngredients>();
