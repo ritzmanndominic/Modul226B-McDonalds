@@ -7,24 +7,19 @@ public class DeliverOrder {
     private HashMap<Integer, Burger> orderedBurgers = new HashMap();
     ArrayList<OptionalIngredients> optionalIngredients = new ArrayList<OptionalIngredients>();
     private int choice = 0;
-    Burger burger = new Burger();
 
-    public DeliverOrder(HashMap<Integer, Burger> orderedBurgers, ArrayList<OptionalIngredients> optionalIngredients, int choice, Burger burger) {
+    public DeliverOrder(HashMap<Integer, Burger> orderedBurgers, ArrayList<OptionalIngredients> optionalIngredients, int choice) {
         this.orderedBurgers = orderedBurgers;
         this.optionalIngredients = optionalIngredients;
         this.choice = choice;
-        this.burger = burger;
     }
 
     public DeliverOrder() {
 
     }
 
-    public void orderBurger() {
-        Menu menu = new Menu();
+    public void makeBurger() {
         do {
-            menu.getBurgerList().forEach((i) -> IO.drawMultipleBox(menu.getBurgerList().size() + 1, (menu.getBurgerList().size() / 2) + 1, (menu.getBurgerList().size() / 2) + 1, "Standard ingredients: " + i.getIngredientsList() + " Optional ingredients" + i.getOptionalIngredientsList()));
-
             IO.drawMultipleBox(20, (OptionalIngredients.values().length / 2) + 1, (OptionalIngredients.values().length / 4), "0: Salad", "1: Tomato", "2: Cucumber", "3: Cheese", "4: Cocktail", "5: Ketchup", "6: Bacon", "7: Pickle", "8: Onion", "9: Done");
             choice = IO.readRangedInt(0, 9);
 
@@ -37,6 +32,10 @@ public class DeliverOrder {
         } while (choice != 9);
         orderedBurgers.put(orderedBurgers.size() + 1, new Burger(optionalIngredients));
 
+        IO.drawMultipleBox(20, 1, 1, "Ingredients " + orderedBurgers.get(1).getIngredientsList() + ", optional ingredients " + orderedBurgers.get(1).getOptionalIngredientsList());
     }
 
+    public void orderBurger() {
+        
+    }
 }

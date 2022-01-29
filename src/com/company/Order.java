@@ -6,10 +6,10 @@ import java.util.Random;
 public class Order {
 
     public static void CreateBurger(Menu menu) {
+        DeliverOrder deliverOrder = new DeliverOrder();
 
-        if (menu.getBurgerList().size()== 0) {
+        if (menu.getBurgerList().size() == 0) {
             int amountOptionalIngredients = new Random().nextInt(OptionalIngredients.values().length);
-            ArrayList<Ingredients> ingredients = new ArrayList<Ingredients>();
             ArrayList<OptionalIngredients> optionalIngredients = new ArrayList<OptionalIngredients>();
 
             for (int i = 0; i < amountOptionalIngredients; i++) {
@@ -19,7 +19,9 @@ public class Order {
                 }
             }
             menu.getBurgerList().add(new Burger(optionalIngredients));
-        }else {
+
+            menu.getBurgerList().forEach(burger -> IO.drawMultipleBox(menu.getBurgerList().size() + 1, (menu.getBurgerList().size() / 2) + 1, (menu.getBurgerList().size() / 2) + 1, "Standard ingredients: " + burger.getIngredientsList() + " Optional ingredients" + burger.getOptionalIngredientsList()));
+        } else {
             System.err.println("You can't recieve orders, you still got some open!");
         }
     }

@@ -26,7 +26,7 @@ public class Overview {
 
                 case 3: {
                     //Prepare order
-                    deliverOrder.orderBurger();
+                    deliverOrder.makeBurger();
                     break;
                 }
                 case 9: {
