@@ -6,10 +6,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Burger {
+    /**
+     * ingredientslist for the burgers
+     * optionalIngredientsList for the burgers
+     */
     private ArrayList<Ingredients> ingredientsList;
     private ArrayList<OptionalIngredients> OptionalIngredientsList = new ArrayList<OptionalIngredients>() {
     };
 
+    /**
+     * each burger has the standard ingredients added
+     * the optional ingredients need to get added manually
+     *
+     * @param optionalIngredients add the optionalIngredients
+     */
     public Burger(ArrayList<OptionalIngredients> optionalIngredients) {
         ingredientsList = new ArrayList<Ingredients>(Arrays.asList(Ingredients.Bread, Ingredients.Bread, Ingredients.Patty));
         OptionalIngredientsList = optionalIngredients;

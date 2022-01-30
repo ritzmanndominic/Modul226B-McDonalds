@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class IO {
 
+    /**
+     * Templates for the single and multiple box
+     */
     private static final String HOR_LINE = "═";
     private static final String VER_LINE = "║";
     private static final String TOP_LEFT_CORNER = "╔";
@@ -13,6 +16,13 @@ public class IO {
     private static final String BOTTOM_RIGHT_CORNER = "╝";
     private static final String SPACE = " ";
 
+    /**
+     * read an int between a min and maximum number
+     *
+     * @param min minimum number the int needs
+     * @param max maximum number the int needs
+     * @return returns the int which was typed in, if the input is between min and max
+     */
     public static int readRangedInt(int min, int max) {
         Scanner scn = new Scanner(System.in);
         int input = min - 1;
@@ -33,6 +43,12 @@ public class IO {
         return input;
     }
 
+    /**
+     * draws a single box with text in it
+     *
+     * @param userText  text which is displayed
+     * @param maxLength maximum lenghth
+     */
     public static void drawSingleBox(String userText, int maxLength) {
         int[] lengthDifference;
         maxLength = Math.max(maxLength, userText.length());
@@ -48,6 +64,14 @@ public class IO {
         System.out.println(BOTTOM_RIGHT_CORNER);
     }
 
+    /**
+     * same as single box but with multiple boxes
+     *
+     * @param maxLength max length a box can have
+     * @param width     how many boxes are horizontally
+     * @param height    how many boxes are vertically
+     * @param userText  text which is displayed, splitted with commas ','
+     */
     public static void drawMultipleBox(int maxLength, int width, int height, String... userText) {
         int[] lengthDifference;
         for (String s : userText) {
@@ -83,6 +107,13 @@ public class IO {
         }
     }
 
+    /**
+     * get length of an int
+     *
+     * @param maxLength  get max length
+     * @param usedLength get the used length
+     * @return returns the difference
+     */
     private static int[] getLength(int maxLength, int usedLength) {
         int[] lengthDifference = new int[3];
         lengthDifference[0] = maxLength - usedLength;

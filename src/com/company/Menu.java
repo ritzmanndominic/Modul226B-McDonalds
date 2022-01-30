@@ -4,12 +4,18 @@ import java.util.ArrayList;
 
 public class Menu {
 
+    /**
+     * Arraylist where all Burgers are saved
+     */
     private ArrayList<Burger> BurgerList;
 
     public Menu() {
         BurgerList = new ArrayList<Burger>();
     }
 
+    /**
+     * prints all Burgers which are ordered
+     */
     public void printMenu() {
         int index = 0;
         if (BurgerList.size() != 0) {
@@ -18,6 +24,9 @@ public class Menu {
                 index++;
             }
 
+            /**
+             * if there are no orders, this error message will be shown!
+             */
         } else {
             System.err.println("There are no orders!");
         }
