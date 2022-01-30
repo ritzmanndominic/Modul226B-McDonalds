@@ -11,7 +11,7 @@ public class DeliverOrder {
      * chooseOrder choose the order you want to make
      */
     private HashMap<Integer, Burger> finishedBurgers = new HashMap();
-    ArrayList<OptionalIngredients> optionalIngredients = new ArrayList<OptionalIngredients>();
+    private ArrayList<OptionalIngredients> optionalIngredients = new ArrayList<OptionalIngredients>();
     private int choice = 0;
     private int chooseOrder = 0;
 
