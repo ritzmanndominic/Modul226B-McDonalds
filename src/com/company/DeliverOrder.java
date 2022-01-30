@@ -119,7 +119,7 @@ public class DeliverOrder {
         int rightIngredients = 40;
         int falseIngredients = 0;
 
-        if (menu.getBurgerList().size() != 0) {
+        if (menu.getBurgerList().size() != 0 && finishedBurgers.size() != 0) {
             /**
              * print the ordered burger and the made burger
              */
