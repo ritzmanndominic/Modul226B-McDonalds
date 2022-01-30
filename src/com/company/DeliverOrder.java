@@ -107,7 +107,6 @@ public class DeliverOrder {
     public void chooseOrderMock(Menu menu, int choose) {
         IO.drawSingleBox("Choose your order", 18);
         menu.printMenu();
-        choose = IO.readRangedInt(0, 3);
         IO.drawMultipleBox(menu.getBurgerList().size() + 1, 1, 1, "Standard ingredients: " + menu.getBurgerList().get(chooseOrder).getIngredientsList() + " Optional ingredients" + menu.getBurgerList().get(chooseOrder).getOptionalIngredientsList());
     }
 
@@ -117,6 +116,74 @@ public class DeliverOrder {
      * @param menu menu where all burgers are saved
      */
     public void deliverOrderedBurger(Menu menu) {
+        int rightIngredients = 40;
+        int falseIngredients = 0;
+
+        if (menu.getBurgerList().size() != 0) {
+            /**
+             * print the ordered burger and the made burger
+             */
+            IO.drawMultipleBox(20, 1, 1, "Ordered Burger " + menu.getBurgerList().get(0).getIngredientsList() + " " + menu.getBurgerList().get(0).getOptionalIngredientsList());
+            IO.drawMultipleBox(20, 1, 1, "Burger made " + finishedBurgers.get(1).getIngredientsList() + " " + finishedBurgers.get(1).getOptionalIngredientsList());
+
+            /**
+             * check if the choosen ingredients are in the ordered burger
+             * for the right ingredients you get the points added
+             * for false ingredients you get minus points
+             */
+            for (int i = 0; i < finishedBurgers.get(1).getOptionalIngredientsList().size(); i++) {
+                OptionalIngredients ingredient = finishedBurgers.get(1).getOptionalIngredientsList().get(i);
+
+                /**
+                 * special case
+                 * if there are no optional ingredients and there where no optional ingredients added, the points are set to 100
+                 * if there are no optional ingredients and there where added optional ingredients, the points are set to -100
+                 */
+                if (menu.getBurgerList().get(chooseOrder).getOptionalIngredientsList().size() == 0 && finishedBurgers.get(1).getOptionalIngredientsList().size() == 0) {
+                    rightIngredients = 100;
+                } else if (menu.getBurgerList().get(chooseOrder).getOptionalIngredientsList().size() == 0 && finishedBurgers.get(1).getOptionalIngredientsList().size() != 0) {
+                    falseIngredients = 100;
+                } else {
+                    /**
+                     * check if choosen ingredient is in the ordered burger
+                     */
+                    for (int k = 0; k < menu.getBurgerList().get(chooseOrder).getOptionalIngredientsList().size(); k++) {
+                        boolean ingredientEquals = menu.getBurgerList().get(chooseOrder).getOptionalIngredientsList().contains(ingredient);
+
+                        if (ingredientEquals == true) {
+                            rightIngredients++;
+                        } else {
+                            falseIngredients++;
+                        }
+                    }
+
+                }
+            }
+            /**
+             * Points you got for the burger
+             */
+            IO.drawSingleBox("Points " + (rightIngredients - falseIngredients), 20);
+
+            /**
+             * remove the ordered burger
+             */
+            menu.getBurgerList().remove(chooseOrder);
+
+            /**
+             * remove the optional ingredients
+             */
+            if (optionalIngredients.size() != 0) {
+                optionalIngredients.removeAll(optionalIngredients);
+            }
+
+        } else {
+            System.err.println("You first need to create a Burger to deliver one!");
+        }
+    }
+
+
+
+    public void deliverOrderedBurgerMock(Menu menu, int chooseOrder) {
         int rightIngredients = 40;
         int falseIngredients = 0;
 

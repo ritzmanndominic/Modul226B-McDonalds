@@ -15,7 +15,7 @@ class DeliverOrderTest {
     }
 
     @Test
-    void chooseOrderMock() {
+    void chooseOrder() {
         deliverOrder.chooseOrderMock(menu, 0);
         assertTrue(true);
     }
@@ -28,7 +28,8 @@ class DeliverOrderTest {
 
     @Test
     void deliverOrderedBurger() {
-        deliverOrder.deliverOrderedBurger(menu);
+        deliverOrder.chooseOrderMock(menu, 0);
+        deliverOrder.deliverOrderedBurgerMock(menu, 0);
         assertTrue(true);
     }
 }
