@@ -11,9 +11,13 @@ public class Menu {
     }
 
     public void printMenu() {
+        int index = 0;
         if (BurgerList.size() != 0) {
-            BurgerList.forEach((i) -> IO.drawMultipleBox(BurgerList.size() + 1, (BurgerList.size() / 2) + 1, (BurgerList.size() / 2) + 1,
-                    "Standard ingredients: " + i.getIngredientsList()  + " Optional ingredients" + i.getOptionalIngredientsList()));
+            for (Burger i : BurgerList) {
+                IO.drawMultipleBox(BurgerList.size() + 1, 1, 1, "Index: " + index + " Standard ingredients: " + i.getIngredientsList() + " Optional ingredients" + i.getOptionalIngredientsList());
+                index++;
+            }
+
         } else {
             System.err.println("There are no orders!");
         }
