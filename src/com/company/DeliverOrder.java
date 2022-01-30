@@ -60,13 +60,8 @@ public class DeliverOrder {
             IO.drawMultipleBox(20, 1, 1, "Ordered Burger " + menu.getBurgerList().get(0).getIngredientsList() + " " + menu.getBurgerList().get(0).getOptionalIngredientsList());
             IO.drawMultipleBox(20, 1, 1, "Burger made " + finishedBurgers.get(1).getIngredientsList() + " " + finishedBurgers.get(1).getOptionalIngredientsList());
 
-            for (int i = 0; i < menu.getBurgerList().size(); i++) {
-                System.out.println(menu.getBurgerList().get(choiceOrder).getOptionalIngredientsList());
-            }
-
-            for (int i = 0; i < finishedBurgers.size(); i++) {
-                System.out.println(finishedBurgers.get(1).getOptionalIngredientsList());
-            }
+            IO.drawSingleBox("Given ingredients: " + menu.getBurgerList().get(choiceOrder).getOptionalIngredientsList(), 20);
+            IO.drawSingleBox("Chosen ingredients" + finishedBurgers.get(1).getOptionalIngredientsList(), 20);
 
             for (int i = 0; i < finishedBurgers.get(1).getOptionalIngredientsList().size(); i++) {
                 OptionalIngredients ingredient = finishedBurgers.get(1).getOptionalIngredientsList().get(i);
@@ -77,7 +72,7 @@ public class DeliverOrder {
                     falseIngredients = 100;
                 } else {
                     for (int k = 0; k < menu.getBurgerList().get(choiceOrder).getOptionalIngredientsList().size(); k++) {
-                        boolean ingredientEquals = menu.getBurgerList().get(choiceOrder).getOptionalIngredientsList().get(k).equals(ingredient);
+                        boolean ingredientEquals = menu.getBurgerList().get(choiceOrder).getOptionalIngredientsList().contains(ingredient);
 
                         if (ingredientEquals == true) {
                             rightIngredients++;
@@ -88,7 +83,7 @@ public class DeliverOrder {
 
                 }
             }
-            System.out.println("Points " + (rightIngredients - falseIngredients));
+            IO.drawSingleBox("Points " + (rightIngredients - falseIngredients), 20);
 
             menu.getBurgerList().remove(choiceOrder);
 

@@ -9,7 +9,7 @@ public class Overview {
     public void overview() {
 
         do {
-            IO.drawMultipleBox(10, 3, 3, "1: Recieve new order", "2: Check all open orders", "3: Prepare order", "4: Deliver Burger", "9: End Simulation");
+            IO.drawMultipleBox(10, 3, 2, "1: Recieve new order", "2: Check all open orders", "3: Prepare order", "4: Deliver Burger", "9: End Simulation", "-----");
             choice = IO.readRangedInt(1, 9);
 
             switch (choice) {
