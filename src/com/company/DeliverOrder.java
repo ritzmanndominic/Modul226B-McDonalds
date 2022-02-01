@@ -67,12 +67,11 @@ public class DeliverOrder {
         }
     }
 
-    public void makeBurgerMock(Menu menu, int choice) {
+    public void makeBurgerMock(Menu menu, int choice, int chooseOrder) {
         if (menu.getBurgerList().size() != 0) {
-            chooseOrder(menu);
+            chooseOrderMock(menu, chooseOrder);
             do {
                 IO.drawMultipleBox(20, (OptionalIngredients.values().length / 2) + 1, (OptionalIngredients.values().length / 4), "0: Salad", "1: Tomato", "2: Cucumber", "3: Cheese", "4: Cocktail", "5: Ketchup", "6: Bacon", "7: Pickle", "8: Onion", "9: Done");
-                choice = IO.readRangedInt(0, 9);
 
                 if (choice != 9) {
                     if (!optionalIngredients.contains(OptionalIngredients.values()[choice])) {

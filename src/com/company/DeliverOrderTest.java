@@ -22,14 +22,7 @@ class DeliverOrderTest {
 
     @Test
     void makeBurger() {
-        deliverOrder.makeBurgerMock(menu, 0);
-        assertTrue(true);
-    }
-
-    @Test
-    void deliverOrderedBurger() {
-        deliverOrder.chooseOrderMock(menu, 0);
-        deliverOrder.deliverOrderedBurgerMock(menu, 0);
+        deliverOrder.makeBurgerMock(menu, 9, 0);
         assertTrue(true);
     }
 }
