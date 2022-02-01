@@ -1,5 +1,7 @@
-package com.company;
+package com.company.test;
 
+import com.company.Menu;
+import com.company.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

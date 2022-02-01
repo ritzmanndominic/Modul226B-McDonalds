@@ -1,5 +1,8 @@
-package com.company;
+package com.company.test;
 
+import com.company.DeliverOrder;
+import com.company.Menu;
+import com.company.Order;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
